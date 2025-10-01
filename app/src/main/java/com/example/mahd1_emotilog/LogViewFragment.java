@@ -13,6 +13,8 @@ import android.widget.ListView;
 import com.example.mahd1_emotilog.databinding.LogViewerBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +45,12 @@ public class LogViewFragment extends Fragment {
                 todayEvents.add(e);
             }
         }
+        Collections.sort(todayEvents, new Comparator<EmojiEvent>() {
+            @Override
+            public int compare(EmojiEvent o1, EmojiEvent o2) {
+                return Long.compare(o2.getTimestamp(), o1.getTimestamp());
+            }
+        });
         ListView list = binding.logList;
         adapter = new LogArrayAdapter(requireContext(), todayEvents);
         list.setAdapter(adapter);
