@@ -13,6 +13,7 @@ import com.example.mahd1_emotilog.databinding.EmojiPickerFragmentBinding;
 
 public class EmojiPickerFragment extends Fragment {
 
+    private TextView[] emojiList;
     private EmojiPickerFragmentBinding binding;
 
     @Override
@@ -29,7 +30,7 @@ public class EmojiPickerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView[] emojiList = {binding.happyEmoji, binding.heartEmoji, binding.sillyEmoji,
+        emojiList = new TextView[]{binding.happyEmoji, binding.heartEmoji, binding.sillyEmoji,
                 binding.angryEmoji, binding.sadEmoji, binding.sleepyEmoji,
                 binding.moneyEmoji, binding.smartEmoji, binding.pooEmoji};
 
