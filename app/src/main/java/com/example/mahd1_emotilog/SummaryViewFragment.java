@@ -37,7 +37,9 @@ public class SummaryViewFragment extends Fragment {
         ArrayList<EmojiEvent> emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
         Map<String, Integer> counts = new HashMap<>();
         for (EmojiEvent e : emojiEvents) {
-            counts.put(e.getEmoji(), counts.getOrDefault(e.getEmoji(), 0) + 1);
+            if (((MainActivity) requireActivity()).isSameDay(e.getTimestamp())) {
+                counts.put(e.getEmoji(), counts.getOrDefault(e.getEmoji(), 0) + 1);
+            }
         }
         ArrayList<EmojiCount> emojiCounts = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : counts.entrySet()) {

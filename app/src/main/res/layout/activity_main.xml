@@ -36,4 +36,17 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black" />
 
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginVertical="110dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/date_picker"
+        app:backgroundTint="@color/purple_200"
+        app:srcCompat="@drawable/ic_calendar"
+        android:layout_marginBottom="80dp"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

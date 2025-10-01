@@ -113,7 +113,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/smart_emoji"
         app:layout_constraintTop_toBottomOf="@id/silly_emoji"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         android:text="@string/money_emoji"
         android:textSize="@dimen/emoji_size"
         android:clickable="true"
@@ -128,7 +128,7 @@
         app:layout_constraintStart_toEndOf="@id/money_emoji"
         app:layout_constraintEnd_toStartOf="@id/poo_emoji"
         app:layout_constraintTop_toBottomOf="@id/heart_emoji"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         android:text="@string/smart_emoji"
         android:textSize="@dimen/emoji_size"
         android:clickable="true"
@@ -143,13 +143,24 @@
         app:layout_constraintStart_toEndOf="@id/smart_emoji"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sleepy_emoji"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         android:text="@string/poo_emoji"
         android:textSize="@dimen/emoji_size"
         android:clickable="true"
         android:focusable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         />
+
+    <TextView
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/smart_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

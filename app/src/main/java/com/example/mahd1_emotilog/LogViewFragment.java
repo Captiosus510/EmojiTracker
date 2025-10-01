@@ -35,8 +35,14 @@ public class LogViewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ArrayList<EmojiEvent> emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
+        ArrayList<EmojiEvent> todayEvents = new ArrayList<>();
+        for (EmojiEvent e : emojiEvents) {
+            if (((MainActivity) requireActivity()).isSameDay(e.getTimestamp())) {
+                todayEvents.add(e);
+            }
+        }
         ListView list = binding.logList;
-        LogArrayAdapter adapter = new LogArrayAdapter(requireContext(), emojiEvents);
+        LogArrayAdapter adapter = new LogArrayAdapter(requireContext(), todayEvents);
         list.setAdapter(adapter);
 
 
