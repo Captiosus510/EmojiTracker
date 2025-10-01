@@ -19,6 +19,8 @@ import java.util.Map;
 
 public class LogViewFragment extends Fragment {
     private LogViewerBinding binding;
+    private ArrayList<EmojiEvent> emojiEvents;
+    private LogArrayAdapter adapter;
 
     @Override
     public View onCreateView(
@@ -34,7 +36,7 @@ public class LogViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<EmojiEvent> emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
+        emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
         ArrayList<EmojiEvent> todayEvents = new ArrayList<>();
         for (EmojiEvent e : emojiEvents) {
             if (((MainActivity) requireActivity()).isSameDay(e.getTimestamp())) {
@@ -42,7 +44,7 @@ public class LogViewFragment extends Fragment {
             }
         }
         ListView list = binding.logList;
-        LogArrayAdapter adapter = new LogArrayAdapter(requireContext(), todayEvents);
+        adapter = new LogArrayAdapter(requireContext(), todayEvents);
         list.setAdapter(adapter);
 
 

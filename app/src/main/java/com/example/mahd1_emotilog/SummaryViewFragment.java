@@ -19,6 +19,9 @@ import java.util.Objects;
 public class SummaryViewFragment extends Fragment {
 
     private SummaryViewerBinding binding;
+    private ArrayList<EmojiEvent> emojiEvents;
+    private ArrayList<EmojiCount> emojiCounts;
+    private SummaryArrayAdapter adapter;
 
     @Override
     public View onCreateView(
@@ -34,18 +37,18 @@ public class SummaryViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ArrayList<EmojiEvent> emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
+        emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
         Map<String, Integer> counts = new HashMap<>();
         for (EmojiEvent e : emojiEvents) {
             if (((MainActivity) requireActivity()).isSameDay(e.getTimestamp())) {
                 counts.put(e.getEmoji(), counts.getOrDefault(e.getEmoji(), 0) + 1);
             }
         }
-        ArrayList<EmojiCount> emojiCounts = new ArrayList<>();
+        emojiCounts = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : counts.entrySet()) {
             emojiCounts.add(new EmojiCount(entry.getKey(), entry.getValue()));
         }
-        SummaryArrayAdapter adapter = new SummaryArrayAdapter(requireContext(), emojiCounts);
+        adapter = new SummaryArrayAdapter(requireContext(), emojiCounts);
         binding.frequencyList.setAdapter(adapter);
     }
 
