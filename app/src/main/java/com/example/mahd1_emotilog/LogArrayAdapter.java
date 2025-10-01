@@ -24,9 +24,11 @@ public class LogArrayAdapter extends ArrayAdapter<EmojiEvent> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        // using built-in layout "simple_list_item_2" to display emoji and timestamp
         if(convertView == null){
             convertView = View.inflate(context, android.R.layout.simple_list_item_2, null);
         }
+        // get the emoji and timestamp for the current position and set the textview elements
         EmojiEvent emojiEvent = emojiEvents.get(position);
         TextView emojiText = convertView.findViewById(android.R.id.text1);
         emojiText.setText(emojiEvent.getEmoji());

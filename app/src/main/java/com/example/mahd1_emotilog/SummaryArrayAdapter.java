@@ -24,9 +24,11 @@ public class SummaryArrayAdapter extends ArrayAdapter<EmojiCount> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        // use custom layout in each list item
         if(convertView == null){
             convertView = View.inflate(context, R.layout.frequency_content, null);
         }
+        // get the emoji and count for the current position and set the textview elements
         EmojiCount emojiCount = emojiCounts.get(position);
         TextView emojiText = convertView.findViewById(R.id.emoji_text);
         emojiText.setText(emojiCount.getEmoji());

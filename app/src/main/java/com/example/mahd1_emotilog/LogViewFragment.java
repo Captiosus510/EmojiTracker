@@ -15,8 +15,6 @@ import com.example.mahd1_emotilog.databinding.LogViewerBinding;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class LogViewFragment extends Fragment {
@@ -38,19 +36,23 @@ public class LogViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // get emoji events from MainActivity
         emojiEvents = ((MainActivity) requireActivity()).getEmojiEvents();
+        // get the events for the selected date)
         ArrayList<EmojiEvent> todayEvents = new ArrayList<>();
         for (EmojiEvent e : emojiEvents) {
             if (((MainActivity) requireActivity()).isSameDay(e.getTimestamp())) {
                 todayEvents.add(e);
             }
         }
+        // sort the events by timestamp in descending order
         Collections.sort(todayEvents, new Comparator<EmojiEvent>() {
             @Override
             public int compare(EmojiEvent o1, EmojiEvent o2) {
                 return Long.compare(o2.getTimestamp(), o1.getTimestamp());
             }
         });
+        // set up the list view
         ListView list = binding.logList;
         adapter = new LogArrayAdapter(requireContext(), todayEvents);
         list.setAdapter(adapter);

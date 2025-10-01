@@ -30,10 +30,12 @@ public class EmojiPickerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initialize all the emoji buttons
         emojiList = new TextView[]{binding.happyEmoji, binding.heartEmoji, binding.sillyEmoji,
                 binding.angryEmoji, binding.sadEmoji, binding.sleepyEmoji,
                 binding.moneyEmoji, binding.smartEmoji, binding.pooEmoji};
 
+        // Set onClickListener for each emoji button
         for (TextView emoji : emojiList) {
             emoji.setOnClickListener(v -> {
                 MainActivity activity = (MainActivity) getActivity();

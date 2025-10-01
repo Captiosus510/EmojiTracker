@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+        // initialize emojiEvents
         emojiEvents = new ArrayList<>();
 
         BottomNavigationView bottomNav = binding.bottomNav;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize to today
         selectedDate = System.currentTimeMillis();
-
+        // set on click listener for date picker fab
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -71,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -91,15 +90,16 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void addEmojiEvent(String emoji){
+    public void addEmojiEvent(String emoji){ // used by fragments to add emojis
         emojiEvents.add(new EmojiEvent(emoji));
     }
 
-    public ArrayList<EmojiEvent> getEmojiEvents(){
+    public ArrayList<EmojiEvent> getEmojiEvents(){ // used by fragments to get history of emojis
         return emojiEvents;
     }
 
     private void openDatePicker(){
+        // use built-in date picker from material components
         MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select a date")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean isSameDay(long inputDate){
+        // compare input date with currently selected date from the date picker.
+        // Converts to same time zone as material date picker uses UTC while system uses local times zone
         Calendar calendar1 = Calendar.getInstance();
         calendar1.setTimeInMillis(inputDate);
         Calendar calendar2 = Calendar.getInstance();
