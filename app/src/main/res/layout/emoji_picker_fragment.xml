@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".EmojiPickerFragment">
+
+
+    <TextView
+        android:id="@+id/happy_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sad_emoji"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/silly_emoji"
+        android:text="@string/happy_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <!--        android:padding=""-->
+
+    <TextView
+        android:id="@+id/sad_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/sad_emoji"
+        android:textSize="@dimen/emoji_size"
+        app:layout_constraintBottom_toTopOf="@id/heart_emoji"
+        app:layout_constraintEnd_toStartOf="@id/angry_emoji"
+        app:layout_constraintStart_toEndOf="@id/happy_emoji"
+        app:layout_constraintVertical_bias="0.3"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/angry_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/sad_emoji"
+        app:layout_constraintBottom_toTopOf="@id/sleepy_emoji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/angry_emoji"
+        android:textSize="@dimen/emoji_size"
+        app:layout_constraintVertical_bias="0.3"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <TextView
+        android:id="@+id/silly_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/heart_emoji"
+        app:layout_constraintTop_toBottomOf="@id/happy_emoji"
+        app:layout_constraintBottom_toTopOf="@id/money_emoji"
+        app:layout_constraintVertical_bias="0.3"
+
+        android:text="@string/silly_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <TextView
+        android:id="@+id/heart_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/heart_emoji"
+        app:layout_constraintVertical_bias="0.3"
+
+        android:textSize="@dimen/emoji_size"
+        app:layout_constraintBottom_toTopOf="@id/smart_emoji"
+        app:layout_constraintEnd_toStartOf="@id/sleepy_emoji"
+        app:layout_constraintStart_toEndOf="@id/silly_emoji"
+        app:layout_constraintTop_toBottomOf="@id/sad_emoji" />
+
+    <TextView
+        android:id="@+id/sleepy_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/heart_emoji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/angry_emoji"
+        app:layout_constraintBottom_toTopOf="@id/poo_emoji"
+        android:text="@string/sleepy_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <TextView
+        android:id="@+id/money_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/smart_emoji"
+        app:layout_constraintTop_toBottomOf="@id/silly_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/money_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <TextView
+        android:id="@+id/smart_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/money_emoji"
+        app:layout_constraintEnd_toStartOf="@id/poo_emoji"
+        app:layout_constraintTop_toBottomOf="@id/heart_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/smart_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <TextView
+        android:id="@+id/poo_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/smart_emoji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepy_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/poo_emoji"
+        android:textSize="@dimen/emoji_size"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,26 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/EmojiPicker">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.mahd1_emotilog.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/EmojiPicker"
+        android:name="com.example.mahd1_emotilog.EmojiPickerFragment"
+        android:label="Emoji Picker"
+        tools:layout="@layout/emoji_picker_fragment">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SummaryViewer" />
+        <action
+            android:id="@+id/action_EmojiPicker_to_logViewFragment"
+            app:destination="@id/LogViewer" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.mahd1_emotilog.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/SummaryViewer"
+        android:name="com.example.mahd1_emotilog.SummaryViewFragment"
+        android:label="Summary Viewer"
+        tools:layout="@layout/summary_viewer">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/EmojiPicker" />
+        <action
+            android:id="@+id/action_SummaryViewer_to_logViewFragment"
+            app:destination="@id/LogViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/LogViewer"
+        android:name="com.example.mahd1_emotilog.LogViewFragment"
+        android:label="Log Viewer">
+        <action
+            android:id="@+id/action_logViewFragment_to_EmojiPicker"
+            app:destination="@id/EmojiPicker" />
     </fragment>
 </navigation>
