@@ -32,7 +32,7 @@ public class LogArrayAdapter extends ArrayAdapter<EmojiEvent> {
         emojiText.setText(emojiEvent.getEmoji());
 
         TextView countText = convertView.findViewById(android.R.id.text2);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy h:m a", Locale.getDefault());
         String formattedTimestamp = sdf.format(emojiEvent.getTimestamp());
         countText.setText(formattedTimestamp);
         return convertView;
